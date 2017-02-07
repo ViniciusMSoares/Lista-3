@@ -23,7 +23,8 @@ int mdc(int x, int y)
     return mdc;
 }
 
-int binarieToDecimal(String binarie)//Utiliza pow(int x, int y)
+int binarieToDecimal(char binarie[])//Utiliza pow(int x, int y)
+//nao funciona!!!problema para saber o tamanho de 'binarie'
 {
     int decimal = 0;
     for (int i = binarie.length-1; i >= 0; i--)
@@ -44,10 +45,30 @@ int pow(int x, int y)
     }
     if (y % 2 == 0)
     {
-        return pow(x*x, y/2));
+        return pow(x*x, y/2);
     }
     else
     {
-        return x * pow(x, y-1)
+        return x * pow(x, y-1);
     }
+}
+
+//returns the size of a character array using a pointer to the first element of the character array
+int size(char *ptr)
+{
+    //variable used to access the subsequent array elements.
+    int offset = 0;
+    //variable that counts the number of elements in your array
+    int count = 0;
+
+    //While loop that tests whether the end of the array has been reached
+    while (*(ptr + offset) != '\0')
+    {
+        //increment the count variable
+        ++count;
+        //advance to the next element of the array
+        ++offset;
+    }
+    //return the size of the array
+    return count;
 }
